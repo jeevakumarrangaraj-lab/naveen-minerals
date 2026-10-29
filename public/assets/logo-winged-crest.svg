@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 80" fill="none" role="img" aria-label="Naveen Minerals Winged Crest Logo">
+  <defs>
+    <linearGradient id="goldWing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="50%" stop-color="#D97706" />
+      <stop offset="100%" stop-color="#EA580C" />
+    </linearGradient>
+    <linearGradient id="navyShield" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <linearGradient id="crimsonPeak" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EF4444" />
+      <stop offset="100%" stop-color="#DC2626" />
+    </linearGradient>
+  </defs>
+
+  <!-- Left Wing Feathers (Gold & Orange) -->
+  <path d="M46 28 L8 18 L18 29 L44 35 Z" fill="url(#goldWing)" />
+  <path d="M44 36 L4 29 L15 39 L43 42 Z" fill="#F59E0B" />
+  <path d="M43 44 L10 41 L21 49 L44 49 Z" fill="#EA580C" />
+  <path d="M45 51 L20 51 L29 57 L47 55 Z" fill="#DC2626" />
+
+  <!-- Right Wing Feathers (Gold & Orange) -->
+  <path d="M94 28 L132 18 L122 29 L96 35 Z" fill="url(#goldWing)" />
+  <path d="M96 36 L136 29 L125 39 L97 42 Z" fill="#F59E0B" />
+  <path d="M97 44 L130 41 L119 49 L96 49 Z" fill="#EA580C" />
+  <path d="M95 51 L120 51 L111 57 L93 55 Z" fill="#DC2626" />
+
+  <!-- Central Crest Shield (Midnight Navy with Gold Border) -->
+  <path d="M70 10 L96 20 L96 44 C96 59 70 70 70 70 C70 70 44 59 44 44 L44 20 Z" fill="url(#navyShield)" stroke="#F59E0B" stroke-width="2.5" />
+
+  <!-- Mineral Mountain Peak Inside Crest (White, Gold & Brand Red) -->
+  <polygon points="70,21 87,51 53,51" fill="#FFFFFF" />
+  <polygon points="70,21 87,51 70,51" fill="#E2E8F0" />
+  <polygon points="60,36 74,51 49,51" fill="url(#crimsonPeak)" />
+  <!-- Top Gold Star / Crown Accent -->
+  <polygon points="70,13 72,17 76,17 73,19.5 74,23.5 70,21 66,23.5 67,19.5 64,17 68,17" fill="#F59E0B" />
+
+  <!-- Ribbon Banner at Base of Crest -->
+  <path d="M48 62 L92 62 L88 69 L52 69 Z" fill="#DC2626" />
+  <text x="70" y="67.2" text-anchor="middle" fill="#FFFFFF" font-family="Outfit, sans-serif" font-weight="700" font-size="5.5" letter-spacing="1.2">NM</text>
+</svg>

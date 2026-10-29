@@ -1,0 +1,862 @@
+# MASTER BUILD PROMPT — NAVEEN MINERALS WEBSITE
+
+Build a complete, professional, production-oriented website for **NAVEEN MINERALS**, a mineral products business based in Namakkal, Tamil Nadu, India.
+
+This is a NEW WEBSITE PROJECT. Build the complete public website, Firebase integration, secure admin portal, product catalogue and quotation management workflow.
+
+Do not merely create a static landing page, UI mockup or non-functional prototype. Implement the actual pages, routes, data models, forms, Firebase services, access controls, and admin workflows.
+
+Use a phased internal implementation approach, but complete the requested scope in the current project. If the environment has execution or output limits, prioritize a working foundation and clearly report what remains unfinished.
+
+# PHASE 1 — BUSINESS IDENTITY AND BRANDING
+
+## Company details
+
+Company name: NAVEEN MINERALS
+
+Tagline: Quality Materials. Reliable Supply.
+
+Address:
+4/47, Kadakalpudar, Veeasanam, Namakkal, Tamil Nadu – 637405, India
+
+Email:
+usnnaveen@gmail.com
+
+Phone:
+8884855288
+
+GSTIN:
+Not yet verified. Keep it unset and hidden from the public website until a valid registration number has been supplied and verified.
+
+## Logo
+
+Use the existing Naveen Minerals winged crest logo supplied in the project assets or provided by the owner.
+
+Before creating or modifying assets:
+1. Inspect the existing project and locate the original logo file.
+2. Reuse the actual logo asset.
+3. Preserve the original wings, crest, typography, proportions and colours.
+4. Do not replace the logo with an unrelated mountain icon, generic symbol or newly invented emblem.
+5. Do not stretch, distort or crop the logo.
+6. If a transparent version exists, use it.
+7. Make the logo clear and readable in the header and footer.
+
+The existing logo uses its established brand colours. Preserve these colours across the entire website.
+
+## Brand design
+
+Create a premium industrial minerals brand experience.
+
+Use:
+- White as the primary background.
+- Very light grey for secondary sections.
+- Dark charcoal for headings and body text.
+- Existing red accent colour for primary call-to-action buttons.
+- Existing navy blue, gold, orange and other logo colours as secondary accents where appropriate.
+- Subtle borders, soft shadows and consistent rounded corners.
+- High-quality mineral photography.
+- Professional typography, excellent spacing and polished interactions.
+
+Do not use black or dark charcoal as the dominant background across the public website.
+
+Do not recolour the logo or replace the existing brand identity.
+
+Maintain readable contrast for all text, buttons, forms and links.
+
+# PHASE 2 — WEBSITE ARCHITECTURE AND NAVIGATION
+
+Create the following public navigation in this exact order:
+
+1. Home
+2. Products
+3. Applications
+4. About
+5. Contact
+6. Request a Quote — prominent red CTA button
+
+Do not include Estimators or Gallery in the navigation.
+
+Do not build separate estimator or gallery pages unless they become an explicitly requested future feature.
+
+Create the following pages:
+
+- Home
+- Products
+- Individual Product Details
+- Applications
+- About
+- Contact
+- Request a Quote
+- Admin Login
+- Admin Dashboard
+- Not Found / 404
+
+Use a clean route structure such as:
+- /
+- /products
+- /products/limestone-powder
+- /products/calcite-powder
+- /products/dolomite-powder
+- /products/feldspar-powder
+- /products/stone-grit
+- /products/quartz-chips
+- /products/kolam-powder
+- /applications
+- /about
+- /contact
+- /request-quote
+- /admin/login
+- /admin/dashboard
+
+Use the existing routing framework if the project already has one. Otherwise implement appropriate client-side routing.
+
+Ensure that refreshing a nested route works correctly in the deployment environment.
+
+# PHASE 3 — HOME PAGE
+
+Build a premium home page that communicates the company's identity and mineral product range immediately.
+
+## Hero section
+
+Use a large, editorial-style hero section with:
+- Company name: NAVEEN MINERALS
+- Tagline: Quality Materials. Reliable Supply.
+- Supporting text introducing the mineral products business.
+- Primary CTA: Explore Our Products
+- Secondary CTA: Request a Quote
+- High-quality mineral stockpile or quarry imagery.
+
+Suggested introductory text:
+
+"Naveen Minerals supplies a range of mineral products for industrial, manufacturing and selected decorative applications. Explore our product range and contact our team for product enquiries and quotations."
+
+Do not invent claims about years in business, production capacity, mine ownership, export coverage, customer numbers, certifications or market leadership.
+
+## Homepage sections
+
+1. Hero
+2. Featured products
+3. Product category introduction
+4. Common applications and industries
+5. Why Choose Naveen Minerals
+6. Enquiry call-to-action
+7. Contact information
+8. Footer
+
+For Why Choose Naveen Minerals, use grounded statements such as:
+- A focused range of mineral products
+- Product enquiries and quotation support
+- Direct contact with the business
+- Product information organised in one place
+
+Do not invent testimonials, customer logos, certifications or business achievements.
+
+# PHASE 4 — SEVEN-PRODUCT CATALOGUE
+
+Create exactly these seven initial product entries.
+
+Product names and spelling must remain consistent across product cards, detail pages, quote forms and admin management.
+
+## PRODUCT 1 — LIMESTONE POWDER
+
+Slug: limestone-powder
+
+Description:
+"Processed limestone powder used as a raw material in construction-material manufacturing and selected industrial applications."
+
+Common applications:
+- Cement and construction-material manufacturing
+- Industrial filler applications
+- Putty and selected building materials
+- Other suitable industrial processes
+
+Image direction:
+Show a realistic, mountain-shaped mound of fine white or pale-grey limestone powder in a mineral yard or processing environment.
+
+## PRODUCT 2 — CALCITE POWDER
+
+Slug: calcite-powder
+
+Description:
+"Processed calcite powder used in industrial manufacturing and suitable filler applications."
+
+Common applications:
+- Paint and coatings
+- Plastics and polymers
+- Rubber products
+- Putty and selected construction materials
+
+Image direction:
+Show a distinct, realistic mound of fine white calcite powder with a soft, powdery texture.
+
+## PRODUCT 3 — DOLOMITE POWDER
+
+Slug: dolomite-powder
+
+Description:
+"Processed dolomite mineral powder used in selected industrial, manufacturing and construction-material applications."
+
+Common applications:
+- Construction-material manufacturing
+- Selected ceramic and glass applications
+- Paint and filler applications
+- Other suitable industrial processes
+
+Image direction:
+Show a realistic mountain-shaped stockpile of pale-grey or off-white dolomite powder.
+
+## PRODUCT 4 — FELDSPAR POWDER
+
+Slug: feldspar-powder
+
+Description:
+"Processed feldspar mineral powder used as a raw material in ceramic, glass and other suitable manufacturing applications."
+
+Common applications:
+- Ceramic tile manufacturing
+- Sanitaryware manufacturing
+- Glass manufacturing
+- Ceramic glaze production
+
+Image direction:
+Show a mound of fine feldspar powder in natural cream, pale-pink or light-grey tones.
+
+## PRODUCT 5 — STONE GRIT
+
+Slug: stone-grit
+
+Description:
+"Graded stone granules for suitable construction, industrial and decorative applications. The actual composition depends on the material supplied."
+
+Common applications:
+- Construction-material production
+- Selected flooring applications
+- Decorative applications
+- Other suitable uses depending on the stone type and size
+
+Image direction:
+Show a mountain-shaped pile of coarse, angular stone grit in a realistic mineral stockyard.
+
+Do not automatically describe Stone Grit as granite, limestone or feldspar unless the owner confirms the composition.
+
+## PRODUCT 6 — QUARTZ CHIPS
+
+Slug: quartz-chips
+
+Description:
+"Processed quartz pieces used as a mineral raw material in suitable industrial and manufacturing applications."
+
+Common applications:
+- Glass manufacturing where purity is suitable
+- Ceramic manufacturing
+- Engineered-stone applications
+- Decorative applications
+
+Image direction:
+Show a realistic mound of angular white, translucent and light-grey quartz chips. Make it visually distinct from the fine powder products.
+
+## PRODUCT 7 — KOLAM POWDER (RANGOLI POWDER)
+
+Slug: kolam-powder
+
+Display name:
+"Kolam Powder (Rangoli Powder)"
+
+Description:
+"Fine powder used for drawing traditional kolam and rangoli designs at the entrances of homes and other spaces."
+
+Common applications:
+- Traditional kolam designs
+- Rangoli decorations
+- Festival and cultural decorations
+- Decorative floor patterns
+
+Image direction:
+Show a realistic mound of fine white kolam powder, with a small amount of powder visible nearby to communicate its texture.
+
+This is traditional decorative kolam powder, not an industrial mineral product. Do not assign it industrial applications or claim a particular chemical composition without confirmation.
+
+## Product data rules
+
+The seven products above are the initial catalogue. Store them as editable product records, not permanently hardcoded UI cards.
+
+Each product should support:
+- Unique ID
+- Name
+- Slug
+- Short description
+- Full description
+- Common applications
+- Main image
+- Optional additional images
+- Active/published status
+- Display order
+- Created timestamp
+- Updated timestamp
+
+Support product creation, editing, publishing, unpublishing and image replacement from the admin dashboard.
+
+Do not create additional public product records automatically.
+
+The product catalogue must be ready for the owner to verify descriptions and actual material grades before publication.
+
+# PHASE 5 — PRODUCT IMAGE REQUIREMENTS
+
+Each of the seven products must have its own appropriate image.
+
+The images must depict the product itself, not merely mining equipment, a factory exterior or unrelated rocks.
+
+Use a consistent visual style:
+- Realistic, high-resolution industrial mineral photography
+- Mountain-shaped piles, mounds or stockpiles of the actual material
+- Consistent image aspect ratios
+- Professional lighting
+- Natural material texture
+- Consistent cropping
+- White or neutral backgrounds that work with the light website theme
+
+Do not reuse the same image for every product.
+
+Do not use:
+- Railway ballast for powder products
+- Blue-metal aggregate for all products
+- Sand for every powder
+- Unrelated decorative gemstones for quartz chips
+- Generic placeholder images
+- Broken external image URLs
+
+If suitable images already exist locally, reuse them. Otherwise, obtain suitable assets through the available image workflow or create project-owned image assets. Store image references in the product data so administrators can replace them.
+
+Do not invent local asset paths or claim that an image is installed until it actually exists and loads.
+
+Provide a visually appropriate fallback image when an image fails to load.
+
+# PHASE 6 — PRODUCTS PAGE AND PRODUCT DETAIL EXPERIENCE
+
+## Products page
+
+Create a premium catalogue page with:
+- Clear heading: Our Products
+- Short introduction
+- Seven product cards
+- Relevant images
+- Product names
+- Short descriptions
+- Common applications
+- View Details button
+- Request Quote button
+
+Use a responsive grid:
+- Three columns on wide desktop
+- Two columns on tablet
+- One column on mobile
+
+Maintain consistent card heights, readable descriptions and aligned buttons.
+
+Use subtle hover animations, not excessive movement.
+
+Do not show:
+- Prices
+- "Price on Request" price rows
+- Bulk density
+- kg/m³
+- Grading or gradation
+- Particle-size ranges
+- Weight specifications
+- Stock quantities
+- Stock availability
+- Unverified purity levels
+- Unsupported technical specifications
+
+Do not display empty technical specification tables.
+
+## Product detail pages
+
+Every product must have a working detail page containing:
+- Product image
+- Product name
+- Detailed description
+- Common applications
+- Additional images when available
+- Request Quote button
+- Related products section
+
+The Request Quote button must preselect the corresponding product in the enquiry form.
+
+Use accurate, general descriptions. Do not represent an application's suitability as guaranteed for every material grade.
+
+# PHASE 7 — APPLICATIONS PAGE
+
+Create a visually engaging Applications page showing the types of industries and uses relevant to the catalogue.
+
+Possible categories include:
+- Cement and construction materials
+- Paint and coatings
+- Plastics and rubber
+- Ceramics and tiles
+- Glass manufacturing
+- Selected decorative applications
+- Traditional kolam and rangoli decoration
+
+Associate each application with the appropriate products.
+
+Do not claim that every product is suitable for every industry.
+
+Keep Kolam Powder in a separate decorative-use category.
+
+Use realistic images and short, readable explanations.
+
+Do not invent client projects, customer case studies or business partnerships.
+
+# PHASE 8 — ABOUT PAGE
+
+Create a professional About page for Naveen Minerals.
+
+Include:
+- Company name and introduction
+- Product range
+- Business contact information
+- A clear explanation of the enquiry and quotation process
+- A relevant mineral stockpile or processing image
+
+Use this introductory copy:
+
+"Naveen Minerals is a mineral products business based in Namakkal, Tamil Nadu. Our catalogue brings together mineral powders, stone materials and quartz products for customers seeking product information and quotations. Contact us to discuss your requirements and obtain a quotation."
+
+Do not invent:
+- Company founding date
+- Years of experience
+- Factory or quarry ownership
+- Annual production capacity
+- Export operations
+- Certifications
+- Customer testimonials
+- Awards
+- Industry rankings
+
+Keep the content editable through the admin-managed business settings wherever practical.
+
+# PHASE 9 — CONTACT PAGE AND BUSINESS INFORMATION
+
+Use the following details exactly.
+
+Business name:
+Naveen Minerals
+
+Address:
+4/47, Kadakalpudar, Veeasanam, Namakkal, Tamil Nadu – 637405, India
+
+Email:
+usnnaveen@gmail.com
+
+Phone:
+8884855288
+
+GSTIN:
+Leave unset until verified.
+
+Requirements:
+- Make the email clickable using mailto:usnnaveen@gmail.com
+- Make the phone number clickable using tel:8884855288
+- Display the complete address in a readable format.
+- Use the same contact information in the footer and quote page.
+- Allow an administrator to edit business contact information.
+- Do not substitute placeholder information.
+- Do not invent a map location or precise coordinates.
+
+If a map is included, use a verified business location. Otherwise, display the address without a map.
+
+## Contact enquiry form
+
+Fields:
+- Full name
+- Phone number
+- Email, if provided
+- Subject or enquiry type
+- Message
+- Privacy consent checkbox
+
+Validate required fields and input formats.
+
+Store submissions securely in Firestore.
+
+Display a clear success or failure message. Do not silently discard submissions.
+
+Add basic spam protection, submission rate limiting through an appropriate trusted backend mechanism, and server-side validation.
+
+Do not expose private contact enquiries in public Firestore queries.
+
+# PHASE 10 — REQUEST A QUOTE WORKFLOW
+
+Quotation requests are the primary sales conversion action.
+
+There must be no public pricing system and no inventory availability system.
+
+## Quote form fields
+
+- Customer name
+- Company name, optional
+- Phone number
+- Email
+- Product selector
+- Required quantity
+- Quantity unit
+- Delivery location
+- Message or special requirements
+- Privacy consent
+
+Product selector options must be:
+1. Limestone Powder
+2. Calcite Powder
+3. Dolomite Powder
+4. Feldspar Powder
+5. Stone Grit
+6. Quartz Chips
+7. Kolam Powder (Rangoli Powder)
+
+Allow customers to select a product from a product detail page and have it automatically preselected.
+
+Provide a sensible quantity-unit selector suitable for the selected product. Possible units include kg, tonnes and bags for appropriate products, but do not force an industrial tonne-based unit for Kolam Powder.
+
+Do not calculate or display prices.
+
+Do not display stock quantities or availability status.
+
+Do not promise a delivery date or quotation response time unless configured and verified by the business.
+
+## Quote submission
+
+When the customer submits the form:
+1. Validate all required fields on the client.
+2. Validate the submission again through a trusted backend mechanism.
+3. Store the request in a private Firestore collection.
+4. Generate a unique quote reference using a trusted backend mechanism.
+5. Store submission timestamps and an initial status of New.
+6. Display the quote reference after successful submission.
+7. Display an appropriate error if submission fails.
+8. Notify the business through the configured notification service, if one is configured.
+9. Never expose the Firebase service account credentials or private API keys in the frontend.
+
+Do not claim that an email was sent if the email service is not configured or the send operation fails.
+
+Suggested quote statuses:
+- New
+- Under Review
+- Contacted
+- Quotation Prepared
+- Closed
+
+Administrators should be able to update the status.
+
+Preserve quote history and do not overwrite historical requests when a product description changes.
+
+# PHASE 11 — FIREBASE BACKEND
+
+Use Firebase as the backend.
+
+Use:
+- Firebase Authentication
+- Cloud Firestore
+- Firebase Storage
+- Firebase Cloud Functions or another trusted server-side Firebase-supported mechanism when privileged operations are required
+
+Use the current stable, compatible Firebase SDK supported by the project environment.
+
+## Firebase Authentication
+
+Implement secure administrator sign-in.
+
+Do not create a public administrator registration page.
+
+Do not hardcode administrator passwords in source code.
+
+Do not treat a hidden route, client-side role flag or frontend-only password check as authorization.
+
+Bootstrap the first administrator through a documented, secure setup procedure. Use Firebase Authentication and a trusted administrator authorization mechanism, such as a protected administrator registry or server-verified custom claims.
+
+## Suggested Firestore collections
+
+### business_settings
+Contains public business information and website configuration.
+
+### products
+Contains the seven product records and future administrator-managed catalogue updates.
+
+### quote_requests
+Contains customer quotation requests, references, statuses and timestamps. Private to authorized administrators.
+
+### contact_messages
+Contains submitted contact enquiries. Private to authorized administrators.
+
+### admin_users
+Contains administrator authorization records. Never permit public users to grant themselves administrator privileges.
+
+### activity_logs
+Optional records of important administrator actions, with sensitive data excluded.
+
+Use server timestamps where appropriate.
+
+Use a reliable, trusted mechanism for generating unique quote references. Do not rely on a client-generated timestamp as the sole uniqueness or security mechanism.
+
+## Firestore security rules
+
+Write restrictive, tested rules.
+
+- Public users can read only published product records and approved public business information.
+- Public users cannot read private quote requests.
+- Public users cannot read private contact messages.
+- Public users cannot read administrator records.
+- Public users cannot grant themselves administrator privileges.
+- Only authorized administrators can create, update or delete product records.
+- Only authorized administrators can view and manage private enquiries.
+- Public write operations must validate the permitted data shape and must not allow clients to assign privileged fields.
+- Keep any privileged quote creation or validation logic in a trusted backend where required.
+- Deny access by default when no rule explicitly allows it.
+
+Do not assume that hiding a UI element makes an operation secure.
+
+## Firebase Storage rules
+
+Use Storage for product images and other required website assets.
+
+- Public users may view published public product images.
+- Only authorized administrators may upload, replace or delete catalogue images.
+- Validate permitted file types and file sizes.
+- Do not permit unrestricted uploads from anonymous visitors.
+- Keep private documents and sensitive business data out of public storage.
+
+## Environment configuration
+
+Use environment variables and the platform's supported secret-management mechanism.
+
+Provide an example configuration file containing only placeholder values, not real secrets.
+
+Never commit Firebase service account credentials, private API keys or passwords.
+
+Document the steps required to configure the Firebase project and deploy the rules and backend functions.
+
+# PHASE 12 — ADMIN DASHBOARD
+
+Create a secure, polished admin dashboard.
+
+## Dashboard overview
+
+Display useful operational information such as:
+- Total published products
+- New enquiries
+- Quotes under review
+- Recently received quote requests
+- Recent contact messages
+
+These are enquiry-management metrics, not stock or inventory metrics.
+
+## Product management
+
+Administrators must be able to:
+- View all seven initial products
+- Add a product
+- Edit a product
+- Update its description and applications
+- Upload or replace images
+- Change display order
+- Publish or unpublish a product
+- Preview a product before publishing
+
+Use form validation and confirmation dialogs for destructive operations.
+
+Do not delete historical quotation records when editing or removing a product.
+
+## Quote management
+
+Administrators must be able to:
+- View submitted quote requests
+- Search by quote reference or customer
+- Filter by status and date
+- Open the full request
+- Change its status
+- Add internal notes
+- View customer contact details
+- Contact the customer by phone or email
+- Preserve quote history
+
+Do not display these records to unauthenticated visitors.
+
+## Contact enquiry management
+
+Administrators must be able to:
+- View contact messages
+- Open the message details
+- Track whether the enquiry has been reviewed
+- Record an internal note or follow-up status
+- Contact the customer
+
+## Business settings
+
+Allow authorized administrators to update:
+- Business name
+- Address
+- Phone
+- Email
+- Tagline
+- Logo asset
+- Public business information
+- GSTIN, once verified
+- Public visibility of the GSTIN
+
+Keep the GSTIN hidden if it has not been verified and approved for display.
+
+Do not add inventory management, stock quantities, pricing management or an estimator.
+
+# PHASE 13 — DESIGN SYSTEM AND INTERACTIONS
+
+Create reusable components for:
+- Header
+- Mobile navigation
+- Footer
+- Product card
+- Product detail layout
+- Application card
+- Contact form
+- Quote form
+- Form fields
+- Buttons
+- Notifications
+- Loading states
+- Empty states
+- Error states
+- Admin tables
+- Admin navigation
+- Confirmation dialogs
+
+## Visual behaviour
+
+- Use subtle transitions and hover states.
+- Respect reduced-motion preferences.
+- Keep all interactive controls accessible by keyboard.
+- Use visible focus indicators.
+- Give all form fields accessible labels.
+- Display validation errors close to the relevant field.
+- Avoid intrusive animations.
+- Keep the white theme consistent across all public pages.
+- Ensure text and accent colours remain readable against white backgrounds.
+- Preserve the existing brand colours rather than introducing an unrelated palette.
+
+## Responsive behaviour
+
+Test:
+- Desktop
+- Tablet
+- Mobile
+
+The navigation should collapse appropriately on smaller screens.
+
+Product images must retain suitable proportions.
+
+Buttons and forms must remain easy to use on touch devices.
+
+Prevent horizontal overflow.
+
+# PHASE 14 — SEO AND PERFORMANCE
+
+Implement:
+- Unique page titles
+- Appropriate meta descriptions
+- Canonical URLs where applicable
+- Open Graph metadata
+- Semantic heading structure
+- Descriptive image alt text
+- Product-specific page metadata
+- Sitemap and robots configuration
+- A custom 404 page
+
+Do not add fabricated structured data, unverified ratings, prices, reviews or business claims.
+
+Optimize images and lazy-load below-the-fold imagery where appropriate.
+
+Avoid unnecessary large dependencies and excessive client-side JavaScript.
+
+Keep Firebase queries efficient and avoid reading every collection on every page load.
+
+# PHASE 15 — SECURITY, PRIVACY AND VALIDATION
+
+- Validate all forms on both client and trusted server.
+- Prevent unauthorized administrator access.
+- Use restrictive Firestore and Storage rules.
+- Protect private customer data.
+- Avoid exposing secrets in the frontend.
+- Use spam protection and suitable rate limiting.
+- Do not log sensitive personal data unnecessarily.
+- Provide clear submission and error feedback.
+- Do not treat frontend validation as the only security layer.
+- Do not claim legal or regulatory compliance without a proper review.
+- Do not store payment-card information; this website does not need online payment processing.
+
+# PHASE 16 — IMPLEMENTATION AND TESTING
+
+Before implementation:
+1. Inspect the current project files and dependencies.
+2. Identify the existing framework and available assets.
+3. Reuse the supplied logo and any suitable existing components.
+4. Confirm the Firebase configuration approach.
+5. Build a small, coherent implementation plan.
+
+Then implement the actual website.
+
+Do not stop after writing a plan or creating static mockups.
+
+After implementation:
+- Run the production build.
+- Run TypeScript checks if applicable.
+- Run existing tests.
+- Test routing and page refreshes.
+- Test product selection and quote preselection.
+- Test form validation and error handling.
+- Test authenticated and unauthenticated access.
+- Verify Firestore and Storage rules.
+- Verify image loading.
+- Verify the white theme on every public page.
+- Verify all seven product records.
+- Verify the contact details.
+- Confirm no public pricing, stock quantities, density information or estimator remain.
+- Test mobile and desktop layouts.
+
+Create automated tests for important permissions and data validation wherever practical.
+
+Do not claim tests passed unless they were executed and passed.
+
+# PHASE 17 — REQUIRED DELIVERY REPORT
+
+At the end, provide a concise report containing:
+1. Pages implemented
+2. Firebase services integrated
+3. Firestore collections and Storage structure
+4. Security rules created
+5. Admin functions implemented
+6. Tests actually run and their results
+7. Environment variables or secrets the owner must configure
+8. Firebase deployment steps
+9. Any unfinished functionality or external service configuration required
+
+Clearly distinguish between implemented code and services that still require manual configuration.
+
+Do not claim the site is production-ready until Firebase configuration, deployment, permissions, and essential workflows have been tested.
+
+## FINAL ACCEPTANCE CRITERIA
+
+The project is complete only when:
+
+- The new Naveen Minerals website uses a premium white theme with the existing brand colours.
+- The original winged logo is preserved.
+- The navigation contains Home, Products, Applications, About, Contact and Request a Quote.
+- The seven specified products are present.
+- Each product has its own appropriate mineral image.
+- Every product has a description, applications and working detail page.
+- Customers can submit quotation requests without seeing prices or stock quantities.
+- Contact details are accurate.
+- The admin portal is protected by Firebase-backed authorization.
+- Products and enquiries are managed through the intended Firebase services.
+- Private enquiries cannot be read by public visitors.
+- The build and relevant tests have been executed successfully.
+- Remaining setup requirements are documented honestly.
+
+Build this as a complete, maintainable business website with real functionality, not just a visual demonstration.

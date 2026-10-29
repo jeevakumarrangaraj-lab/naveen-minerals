@@ -1,0 +1,6 @@
+{
+  "name": "Naveen Minerals",
+  "description": "Industrial mineral products, mineral powders, stone grit, quartz chips, and traditional kolam powder supplied from Namakkal, Tamil Nadu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

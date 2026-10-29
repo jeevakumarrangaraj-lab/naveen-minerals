@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="limestone-glow" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#2D3342" />
+      <stop offset="50%" stop-color="#161922" />
+      <stop offset="100%" stop-color="#0B0D12" />
+    </radialGradient>
+    <linearGradient id="limestone-mound" x1="20%" y1="10%" x2="80%" y2="90%">
+      <stop offset="0%" stop-color="#F3F4F6" />
+      <stop offset="40%" stop-color="#D1D5DB" />
+      <stop offset="80%" stop-color="#9CA3AF" />
+      <stop offset="100%" stop-color="#4B5563" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.7 0"/>
+    </filter>
+  </defs>
+  
+  <rect width="800" height="600" fill="url(#limestone-glow)"/>
+  <ellipse cx="400" cy="480" rx="280" ry="60" fill="#050608" opacity="0.8"/>
+  <ellipse cx="400" cy="445" rx="210" ry="30" fill="#000000" filter="url(#shadow)" opacity="0.6"/>
+  
+  <g>
+    <path d="M 160 440 Q 250 420 400 435 Q 550 420 640 440 Q 680 460 620 480 Q 400 500 180 480 Q 120 460 160 440 Z" fill="#6B7280" opacity="0.4"/>
+    <path d="M 400 140 Q 450 240 580 420 Q 620 450 580 470 Q 400 490 220 470 Q 180 450 220 420 Q 350 240 400 140 Z" fill="url(#limestone-mound)"/>
+    <path d="M 400 140 Q 430 240 510 380 Q 450 350 370 280 Q 380 200 400 140 Z" fill="#FFFFFF" opacity="0.35"/>
+    <path d="M 380 220 Q 430 310 540 440" stroke="#9CA3AF" stroke-width="3" fill="none" opacity="0.5"/>
+    <path d="M 420 180 Q 460 260 560 410" stroke="#E5E7EB" stroke-width="2" fill="none" opacity="0.4"/>
+    <path d="M 340 300 Q 400 380 490 460" stroke="#6B7280" stroke-width="2.5" fill="none" opacity="0.4"/>
+  </g>
+  
+  <g transform="translate(40, 40)" opacity="0.75">
+    <rect x="0" y="0" width="180" height="32" rx="4" fill="#161922" stroke="#2D3342" stroke-width="1"/>
+    <text x="12" y="21" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#D97706" letter-spacing="1">NAVEEN MINERALS</text>
+  </g>
+  <text x="760" y="565" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#9CA3AF" text-anchor="end" letter-spacing="0.5">Limestone Powder (Industrial Grade)</text>
+</svg>

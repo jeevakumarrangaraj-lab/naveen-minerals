@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+  --color-midnight-navy: #0F172A;
+  --color-soft-cream: #FFF7ED;
+  --color-white: #FFFFFF;
+  --color-light-grey: #F3F4F6;
+  --color-charcoal: #1F2937;
+  --color-brand-red: #DC2626;
+  --color-brand-red-hover: #B91C1C;
+  --color-brand-gold: #D97706;
+  --color-brand-orange: #EA580C;
+}
+
+@layer base {
+  html {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--color-charcoal);
+    background-color: var(--color-white);
+    scroll-behavior: smooth;
+  }
+
+  html.lang-ta {
+    font-family: 'Noto Sans Tamil', 'Plus Jakarta Sans', sans-serif !important;
+  }
+
+  html.lang-hi {
+    font-family: 'Noto Sans Devanagari', 'Plus Jakarta Sans', sans-serif !important;
+  }
+
+  html.lang-zh {
+    font-family: 'Noto Sans SC', 'Plus Jakarta Sans', sans-serif !important;
+  }
+
+  html.lang-ar {
+    direction: rtl;
+    font-family: 'Noto Sans Arabic', 'Plus Jakarta Sans', sans-serif !important;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    color: var(--color-midnight-navy);
+    text-wrap: balance;
+  }
+
+  html.lang-ta h1, html.lang-ta h2, html.lang-ta h3, html.lang-ta h4, html.lang-ta .font-display {
+    font-family: 'Noto Sans Tamil', 'Outfit', sans-serif !important;
+  }
+
+  html.lang-hi h1, html.lang-hi h2, html.lang-hi h3, html.lang-hi h4, html.lang-hi .font-display {
+    font-family: 'Noto Sans Devanagari', 'Outfit', sans-serif !important;
+  }
+
+  html.lang-zh h1, html.lang-zh h2, html.lang-zh h3, html.lang-zh h4, html.lang-zh .font-display {
+    font-family: 'Noto Sans SC', 'Outfit', sans-serif !important;
+  }
+
+  html.lang-ar h1, html.lang-ar h2, html.lang-ar h3, html.lang-ar h4, html.lang-ar .font-display {
+    font-family: 'Noto Sans Arabic', 'Outfit', sans-serif !important;
+  }
+
+  .font-mono-tabular {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,309 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 1. Global Safety Net: Default deny all access
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // 2. Hardened Global Primitives
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isVerifiedUser() {
+      return isSignedIn() && request.auth.token.email_verified == true;
+    }
+
+    function isAdmin() {
+      return isVerifiedUser() && (
+        request.auth.token.email == 'jeevakumarrangarajk@gmail.com' ||
+        request.auth.token.email == 'usnnaveen@gmail.com' ||
+        exists(/databases/$(database)/documents/admin_users/$(request.auth.uid))
+      );
+    }
+
+    // 3. Entity Validation Blueprints
+
+    function isValidBusinessSettings(data) {
+      return data.keys().hasAll([
+        'companyName', 'tagline', 'address', 'email', 'phone',
+        'introText', 'aboutText', 'gstin', 'gstinVerified',
+        'showGstinPublicly', 'updatedAt', 'updatedBy'
+      ]) &&
+      data.keys().hasOnly([
+        'companyName', 'tagline', 'address', 'email', 'phone',
+        'introText', 'aboutText', 'gstin', 'gstinVerified',
+        'showGstinPublicly', 'updatedAt', 'updatedBy'
+      ]) &&
+      data.companyName is string && data.companyName.size() >= 2 && data.companyName.size() <= 100 &&
+      data.tagline is string && data.tagline.size() >= 2 && data.tagline.size() <= 160 &&
+      data.address is string && data.address.size() >= 5 && data.address.size() <= 300 &&
+      data.email is string && data.email.size() >= 5 && data.email.size() <= 120 && data.email.matches('^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$') &&
+      data.phone is string && data.phone.size() >= 8 && data.phone.size() <= 25 && data.phone.matches('^[0-9+\\-\\s()]{8,25}$') &&
+      data.introText is string && data.introText.size() >= 10 && data.introText.size() <= 600 &&
+      data.aboutText is string && data.aboutText.size() >= 10 && data.aboutText.size() <= 1200 &&
+      data.gstin is string && data.gstin.size() <= 20 &&
+      data.gstinVerified is bool &&
+      data.showGstinPublicly is bool &&
+      (!data.showGstinPublicly || (data.gstinVerified == true && data.gstin.size() >= 15)) &&
+      data.updatedAt is timestamp &&
+      data.updatedBy is string && data.updatedBy.size() >= 1 && data.updatedBy.size() <= 128;
+    }
+
+    function isValidProduct(data) {
+      return data.keys().hasAll([
+        'id', 'name', 'slug', 'category', 'shortDescription', 'fullDescription',
+        'commonApplications', 'mainImage', 'additionalImages', 'allowedUnits',
+        'published', 'displayOrder', 'createdAt', 'updatedAt'
+      ]) &&
+      data.keys().hasOnly([
+        'id', 'name', 'slug', 'category', 'shortDescription', 'fullDescription',
+        'commonApplications', 'mainImage', 'additionalImages', 'allowedUnits',
+        'published', 'displayOrder', 'createdAt', 'updatedAt'
+      ]) &&
+      data.id is string && data.id.size() >= 2 && data.id.size() <= 80 && data.id.matches('^[a-zA-Z0-9_\\-]+$') &&
+      data.name is string && data.name.size() >= 2 && data.name.size() <= 100 &&
+      data.slug is string && data.slug.size() >= 2 && data.slug.size() <= 80 && data.slug.matches('^[a-z0-9\\-]+$') &&
+      data.category is string && data.category.size() <= 50 &&
+      (data.category == 'Mineral Powders' || data.category == 'Crushed Stone & Chips' || data.category == 'Decorative Powder') &&
+      data.shortDescription is string && data.shortDescription.size() >= 10 && data.shortDescription.size() <= 350 &&
+      data.fullDescription is string && data.fullDescription.size() >= 10 && data.fullDescription.size() <= 2000 &&
+      data.commonApplications is list && data.commonApplications.size() >= 1 && data.commonApplications.size() <= 10 &&
+      data.commonApplications[0] is string && data.commonApplications[0].size() <= 160 &&
+      data.mainImage is string && data.mainImage.size() >= 1 && data.mainImage.size() <= 500 &&
+      data.additionalImages is list && data.additionalImages.size() <= 6 &&
+      (data.additionalImages.size() == 0 || (data.additionalImages[0] is string && data.additionalImages[0].size() <= 500)) &&
+      data.allowedUnits is list && data.allowedUnits.size() >= 1 && data.allowedUnits.size() <= 6 &&
+      data.allowedUnits[0] is string && data.allowedUnits[0].size() <= 30 &&
+      data.published is bool &&
+      data.displayOrder is number && data.displayOrder >= 0 && data.displayOrder <= 1000 &&
+      data.createdAt is timestamp &&
+      data.updatedAt is timestamp;
+    }
+
+    function isValidQuoteRequest(data) {
+      return data.keys().hasAll([
+        'quoteReference', 'customerName', 'companyName', 'phone', 'email',
+        'productSlug', 'productName', 'quantity', 'quantityUnit',
+        'deliveryLocation', 'message', 'privacyConsent', 'status',
+        'internalNotes', 'createdAt', 'updatedAt'
+      ]) &&
+      data.keys().hasOnly([
+        'quoteReference', 'customerName', 'companyName', 'phone', 'email',
+        'productSlug', 'productName', 'quantity', 'quantityUnit',
+        'deliveryLocation', 'message', 'privacyConsent', 'status',
+        'internalNotes', 'createdAt', 'updatedAt'
+      ]) &&
+      data.quoteReference is string && data.quoteReference.size() >= 6 && data.quoteReference.size() <= 40 &&
+      data.quoteReference.matches('^NM-Q-[0-9]{8}-[A-Z0-9]{6}$') &&
+      data.customerName is string && data.customerName.size() >= 2 && data.customerName.size() <= 100 &&
+      data.companyName is string && data.companyName.size() <= 120 &&
+      data.phone is string && data.phone.size() >= 8 && data.phone.size() <= 25 && data.phone.matches('^[0-9+\\-\\s()]{8,25}$') &&
+      data.email is string && data.email.size() >= 5 && data.email.size() <= 120 && data.email.matches('^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$') &&
+      data.productSlug is string && data.productSlug.size() >= 2 && data.productSlug.size() <= 80 && data.productSlug.matches('^[a-z0-9\\-]+$') &&
+      data.productName is string && data.productName.size() >= 2 && data.productName.size() <= 100 &&
+      data.quantity is string && data.quantity.size() >= 1 && data.quantity.size() <= 40 &&
+      data.quantityUnit is string && data.quantityUnit.size() >= 1 && data.quantityUnit.size() <= 30 &&
+      data.deliveryLocation is string && data.deliveryLocation.size() >= 2 && data.deliveryLocation.size() <= 200 &&
+      data.message is string && data.message.size() <= 1500 &&
+      data.privacyConsent is bool && data.privacyConsent == true &&
+      data.status is string && data.status.size() <= 30 &&
+      (data.status == 'New' || data.status == 'Under Review' || data.status == 'Contacted' || data.status == 'Quotation Prepared' || data.status == 'Closed') &&
+      data.internalNotes is string && data.internalNotes.size() <= 2000 &&
+      data.createdAt is timestamp &&
+      data.updatedAt is timestamp;
+    }
+
+    function isValidContactMessage(data) {
+      return data.keys().hasAll([
+        'fullName', 'phone', 'email', 'subject', 'message',
+        'privacyConsent', 'status', 'internalNotes', 'createdAt', 'updatedAt'
+      ]) &&
+      data.keys().hasOnly([
+        'fullName', 'phone', 'email', 'subject', 'message',
+        'privacyConsent', 'status', 'internalNotes', 'createdAt', 'updatedAt'
+      ]) &&
+      data.fullName is string && data.fullName.size() >= 2 && data.fullName.size() <= 100 &&
+      data.phone is string && data.phone.size() >= 8 && data.phone.size() <= 25 && data.phone.matches('^[0-9+\\-\\s()]{8,25}$') &&
+      data.email is string && data.email.size() <= 120 &&
+      (data.email.size() == 0 || data.email.matches('^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$')) &&
+      data.subject is string && data.subject.size() >= 2 && data.subject.size() <= 140 &&
+      data.message is string && data.message.size() >= 5 && data.message.size() <= 1500 &&
+      data.privacyConsent is bool && data.privacyConsent == true &&
+      data.status is string && data.status.size() <= 30 &&
+      (data.status == 'New' || data.status == 'Reviewed' || data.status == 'Responded' || data.status == 'Archived') &&
+      data.internalNotes is string && data.internalNotes.size() <= 2000 &&
+      data.createdAt is timestamp &&
+      data.updatedAt is timestamp;
+    }
+
+    function isValidAdminUser(data) {
+      return data.keys().hasAll(['uid', 'email', 'role', 'createdAt']) &&
+      data.keys().hasOnly(['uid', 'email', 'role', 'createdAt']) &&
+      data.uid is string && data.uid.size() >= 1 && data.uid.size() <= 128 &&
+      data.email is string && data.email.size() >= 5 && data.email.size() <= 120 && data.email.matches('^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$') &&
+      data.role is string && data.role == 'admin' &&
+      data.createdAt is timestamp;
+    }
+
+    function isValidActivityLog(data) {
+      return data.keys().hasAll(['adminUid', 'adminEmail', 'action', 'targetId', 'summary', 'createdAt']) &&
+      data.keys().hasOnly(['adminUid', 'adminEmail', 'action', 'targetId', 'summary', 'createdAt']) &&
+      data.adminUid is string && data.adminUid.size() >= 1 && data.adminUid.size() <= 128 &&
+      data.adminEmail is string && data.adminEmail.size() >= 3 && data.adminEmail.size() <= 120 &&
+      data.action is string && data.action.size() >= 2 && data.action.size() <= 80 &&
+      data.targetId is string && data.targetId.size() >= 1 && data.targetId.size() <= 128 &&
+      data.summary is string && data.summary.size() >= 2 && data.summary.size() <= 300 &&
+      data.createdAt is timestamp;
+    }
+
+    // 4. Collection Match Blocks
+
+    // Connection test path (read-only verification)
+    match /test/{docId} {
+      allow get: if isValidId(docId);
+      allow list, write: if false;
+    }
+
+    // Public Business Settings (singleton 'main' document)
+    match /business_settings/{settingId} {
+      allow get: if settingId == 'main';
+      allow list: if false;
+      allow create: if settingId == 'main' &&
+        isValidBusinessSettings(incoming()) &&
+        incoming().updatedBy == request.auth.uid &&
+        incoming().updatedAt == request.time &&
+        isAdmin();
+      allow update: if settingId == 'main' &&
+        isValidBusinessSettings(incoming()) &&
+        incoming().updatedBy == request.auth.uid &&
+        incoming().updatedAt == request.time &&
+        incoming().diff(existing()).affectedKeys().hasOnly([
+          'companyName', 'tagline', 'address', 'email', 'phone',
+          'introText', 'aboutText', 'gstin', 'gstinVerified',
+          'showGstinPublicly', 'updatedAt', 'updatedBy'
+        ]) &&
+        isAdmin();
+      allow delete: if false;
+    }
+
+    // Mineral Products Catalogue
+    match /products/{productId} {
+      allow get: if isValidId(productId) && (resource.data.published == true || isAdmin());
+      allow list: if resource.data.published == true || isAdmin();
+      allow create: if isValidId(productId) &&
+        isValidProduct(incoming()) &&
+        incoming().id == productId &&
+        incoming().createdAt == request.time &&
+        incoming().updatedAt == request.time &&
+        isAdmin();
+      allow update: if isValidId(productId) &&
+        isValidProduct(incoming()) &&
+        incoming().id == existing().id &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().updatedAt == request.time &&
+        incoming().diff(existing()).affectedKeys().hasOnly([
+          'name', 'slug', 'category', 'shortDescription', 'fullDescription',
+          'commonApplications', 'mainImage', 'additionalImages', 'allowedUnits',
+          'published', 'displayOrder', 'updatedAt'
+        ]) &&
+        isAdmin();
+      allow delete: if isValidId(productId) && isAdmin();
+    }
+
+    // Customer Quote Requests (Private to Administrators; Public Create with strict initial state)
+    match /quote_requests/{quoteId} {
+      allow get: if isValidId(quoteId) && isAdmin();
+      allow list: if isAdmin();
+      allow create: if isValidId(quoteId) &&
+        isValidQuoteRequest(incoming()) &&
+        incoming().status == 'New' &&
+        incoming().internalNotes == '' &&
+        incoming().createdAt == request.time &&
+        incoming().updatedAt == request.time;
+      allow update: if isValidId(quoteId) &&
+        isValidQuoteRequest(incoming()) &&
+        incoming().quoteReference == existing().quoteReference &&
+        incoming().customerName == existing().customerName &&
+        incoming().companyName == existing().companyName &&
+        incoming().phone == existing().phone &&
+        incoming().email == existing().email &&
+        incoming().productSlug == existing().productSlug &&
+        incoming().productName == existing().productName &&
+        incoming().quantity == existing().quantity &&
+        incoming().quantityUnit == existing().quantityUnit &&
+        incoming().deliveryLocation == existing().deliveryLocation &&
+        incoming().message == existing().message &&
+        incoming().privacyConsent == existing().privacyConsent &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().updatedAt == request.time &&
+        incoming().diff(existing()).affectedKeys().hasOnly(['status', 'internalNotes', 'updatedAt']) &&
+        isAdmin();
+      allow delete: if false;
+    }
+
+    // Customer Contact Messages (Private to Administrators; Public Create with strict initial state)
+    match /contact_messages/{messageId} {
+      allow get: if isValidId(messageId) && isAdmin();
+      allow list: if isAdmin();
+      allow create: if isValidId(messageId) &&
+        isValidContactMessage(incoming()) &&
+        incoming().status == 'New' &&
+        incoming().internalNotes == '' &&
+        incoming().createdAt == request.time &&
+        incoming().updatedAt == request.time;
+      allow update: if isValidId(messageId) &&
+        isValidContactMessage(incoming()) &&
+        incoming().fullName == existing().fullName &&
+        incoming().phone == existing().phone &&
+        incoming().email == existing().email &&
+        incoming().subject == existing().subject &&
+        incoming().message == existing().message &&
+        incoming().privacyConsent == existing().privacyConsent &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().updatedAt == request.time &&
+        incoming().diff(existing()).affectedKeys().hasOnly(['status', 'internalNotes', 'updatedAt']) &&
+        isAdmin();
+      allow delete: if false;
+    }
+
+    // Protected Administrator Registry
+    match /admin_users/{adminUid} {
+      allow get: if isValidId(adminUid) && (
+        (isVerifiedUser() && request.auth.uid == adminUid) || isAdmin()
+      );
+      allow list: if isAdmin();
+      allow create: if isValidId(adminUid) &&
+        isValidAdminUser(incoming()) &&
+        incoming().uid == adminUid &&
+        incoming().createdAt == request.time &&
+        isAdmin();
+      allow update, delete: if false;
+    }
+
+    // Administrator Operational Activity Logs (Immutable once created)
+    match /activity_logs/{logId} {
+      allow get: if isValidId(logId) && isAdmin();
+      allow list: if isAdmin();
+      allow create: if isValidId(logId) &&
+        isValidActivityLog(incoming()) &&
+        incoming().adminUid == request.auth.uid &&
+        incoming().createdAt == request.time &&
+        isAdmin();
+      allow update, delete: if false;
+    }
+  }
+}

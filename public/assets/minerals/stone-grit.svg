@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="grit-glow" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#333A48" />
+      <stop offset="50%" stop-color="#1A1F2B" />
+      <stop offset="100%" stop-color="#0B0D12" />
+    </radialGradient>
+    <filter id="shadow-g" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.8 0"/>
+    </filter>
+  </defs>
+  
+  <rect width="800" height="600" fill="url(#grit-glow)"/>
+  <ellipse cx="400" cy="485" rx="290" ry="55" fill="#050608" opacity="0.85"/>
+  <ellipse cx="400" cy="450" rx="220" ry="25" fill="#000000" filter="url(#shadow-g)" opacity="0.7"/>
+  
+  <!-- Stone Grit / Aggregate Heap with individual granular pieces -->
+  <g>
+    <!-- Base shadow pile -->
+    <path d="M 170 440 Q 280 410 400 425 Q 520 410 630 440 Q 670 475 610 495 Q 400 515 190 495 Q 130 475 170 440 Z" fill="#334155" opacity="0.7"/>
+    
+    <!-- Main aggregate pile shape -->
+    <path d="M 400 150 Q 480 250 590 420 Q 630 455 585 480 Q 400 500 215 480 Q 170 455 210 420 Q 320 250 400 150 Z" fill="#475569"/>
+    
+    <!-- Individual Graded Stone Grit Granules & Angular Particles -->
+    <!-- Center-left highlights -->
+    <circle cx="340" cy="380" r="14" fill="#94A3B8"/><circle cx="360" cy="360" r="12" fill="#CBD5E1"/><circle cx="320" cy="400" r="16" fill="#64748B"/>
+    <circle cx="380" cy="340" r="15" fill="#E2E8F0"/><circle cx="350" cy="320" r="13" fill="#94A3B8"/><circle cx="300" cy="380" r="15" fill="#475569"/>
+    
+    <!-- Center-right highlights -->
+    <circle cx="450" cy="370" r="15" fill="#CBD5E1"/><circle cx="480" cy="390" r="13" fill="#94A3B8"/><circle cx="430" cy="350" r="16" fill="#E2E8F0"/>
+    <circle cx="460" cy="330" r="12" fill="#64748B"/><circle cx="500" cy="360" r="14" fill="#94A3B8"/><circle cx="420" cy="390" r="15" fill="#475569"/>
+    
+    <!-- Peak stones -->
+    <circle cx="400" cy="180" r="16" fill="#E2E8F0"/><circle cx="420" cy="200" r="14" fill="#CBD5E1"/><circle cx="380" cy="210" r="15" fill="#94A3B8"/>
+    <circle cx="400" cy="230" r="17" fill="#64748B"/><circle cx="440" cy="240" r="13" fill="#CBD5E1"/><circle cx="360" cy="250" r="15" fill="#475569"/>
+    
+    <!-- Mid slope stones -->
+    <circle cx="310" cy="430" r="14" fill="#94A3B8"/><circle cx="350" cy="440" r="16" fill="#CBD5E1"/><circle cx="280" cy="420" r="13" fill="#64748B"/>
+    <circle cx="490" cy="430" r="15" fill="#CBD5E1"/><circle cx="530" cy="440" r="14" fill="#94A3B8"/><circle cx="450" cy="450" r="16" fill="#64748B"/>
+    <circle cx="390" cy="460" r="15" fill="#E2E8F0"/><circle cx="430" cy="470" r="14" fill="#94A3B8"/><circle cx="500" cy="410" r="13" fill="#475569"/>
+    
+    <!-- Scattered perimeter grit particles -->
+    <circle cx="230" cy="465" r="8" fill="#94A3B8"/><circle cx="250" cy="480" r="7" fill="#CBD5E1"/><circle cx="200" cy="470" r="9" fill="#64748B"/>
+    <circle cx="570" cy="465" r="9" fill="#E2E8F0"/><circle cx="600" cy="475" r="7" fill="#94A3B8"/><circle cx="540" cy="485" r="8" fill="#64748B"/>
+  </g>
+  
+  <g transform="translate(40, 40)" opacity="0.75">
+    <rect x="0" y="0" width="180" height="32" rx="4" fill="#161922" stroke="#2D3342" stroke-width="1"/>
+    <text x="12" y="21" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#D97706" letter-spacing="1">NAVEEN MINERALS</text>
+  </g>
+  <text x="760" y="565" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#94A3B8" text-anchor="end" letter-spacing="0.5">Stone Grit (Graded Construction Aggregate)</text>
+</svg>
